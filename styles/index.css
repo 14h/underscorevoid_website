@@ -1,0 +1,422 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+
+@layer base {
+}
+
+/* purgecss end ignore */
+@tailwind utilities;
+
+* {
+    cursor: none;
+    scroll-behavior: smooth;
+    -webkit-font-feature-settings: "liga" on, "calt" on;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+html {
+    color: #FFF;
+    background: #000;
+    font-family: JetBrains Mono, serif !important;
+}
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2'),
+    url('https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-weight: normal;
+    overflow-x: hidden;
+}
+
+/* SCROLLBAR STYLES*/
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 4px #FFF;
+    border-radius: 0;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fbc301;
+    border-radius: 0;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #FFF;
+    mix-blend-mode: exclusion;
+}
+/**/
+
+.container {
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .container-l {
+        max-width: 640px
+    }
+}
+
+@media (min-width: 768px) {
+    .container-l {
+        max-width: 768px
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-l {
+        max-width: 1024px
+    }
+}
+
+@media (min-width: 1280px) {
+    .container-l {
+        max-width: 1440px !important;
+    }
+}
+
+.left-4 {
+    left: 1rem;
+}
+
+.right-4 {
+    right: 1rem;
+}
+
+.bottom-8 {
+    bottom: 2rem;
+}
+
+.scroll-parent {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.action-anim {
+    font-family: JetBrains Mono, serif !important;
+
+    /* Avoid user-select for all browsers */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    position: relative;
+}
+
+div:hover > .action-anim::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: 2px;
+    text-shadow: -2px 0 #fbc301;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: logo-font-animation 3s infinite linear alternate-reverse;
+}
+
+.bg-white-black-anim {
+    animation: bg-animation 3s infinite linear alternate-reverse;
+}
+
+div:hover > .action-anim::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: -2px;
+    text-shadow: -2px 0 #fbc301, 2px 2px #fbc301;
+    animation: logo-font-animation2 1s infinite linear alternate-reverse;
+}
+
+.dot {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: #FFF;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    pointer-events: none;
+    mix-blend-mode: exclusion;
+}
+
+@keyframes logo-font-animation {
+    0% {
+        clip: rect(14px, 9999px, 50px, 0);
+        transform: skew(0.71deg);
+    }
+    5% {
+        clip: rect(34px, 9999px, 73px, 0);
+        transform: skew(0.21deg);
+    }
+    10% {
+        clip: rect(34px, 9999px, 82px, 0);
+        transform: skew(0.9deg);
+    }
+    15% {
+        clip: rect(3px, 9999px, 74px, 0);
+        transform: skew(0.41deg);
+    }
+    20% {
+        clip: rect(100px, 9999px, 54px, 0);
+        transform: skew(0.52deg);
+    }
+    25% {
+        clip: rect(74px, 9999px, 67px, 0);
+        transform: skew(0.52deg);
+    }
+    30% {
+        clip: rect(92px, 9999px, 75px, 0);
+        transform: skew(0.58deg);
+    }
+    35% {
+        clip: rect(5px, 9999px, 67px, 0);
+        transform: skew(0.72deg);
+    }
+    40% {
+        clip: rect(85px, 9999px, 14px, 0);
+        transform: skew(0.73deg);
+    }
+    45% {
+        clip: rect(60px, 9999px, 18px, 0);
+        transform: skew(0.11deg);
+    }
+    50% {
+        clip: rect(5px, 9999px, 28px, 0);
+        transform: skew(0.93deg);
+    }
+    55% {
+        clip: rect(74px, 9999px, 95px, 0);
+        transform: skew(0.82deg);
+    }
+    60% {
+        clip: rect(55px, 9999px, 6px, 0);
+        transform: skew(0.52deg);
+    }
+    65% {
+        clip: rect(92px, 9999px, 51px, 0);
+        transform: skew(0.83deg);
+    }
+    70% {
+        clip: rect(6px, 9999px, 10px, 0);
+        transform: skew(0.76deg);
+    }
+    75% {
+        clip: rect(76px, 9999px, 95px, 0);
+        transform: skew(0.39deg);
+    }
+    80% {
+        clip: rect(14px, 9999px, 41px, 0);
+        transform: skew(0.43deg);
+    }
+    85% {
+        clip: rect(43px, 9999px, 56px, 0);
+        transform: skew(0.65deg);
+    }
+    90% {
+        clip: rect(50px, 9999px, 12px, 0);
+        transform: skew(0.22deg);
+    }
+    95% {
+        clip: rect(86px, 9999px, 45px, 0);
+        transform: skew(0.98deg);
+    }
+    100% {
+        clip: rect(72px, 9999px, 100px, 0);
+        transform: skew(0.03deg);
+    }
+}
+
+@keyframes logo-font-animation2 {
+    0% {
+        clip: rect(61px, 9999px, 51px, 0);
+        transform: skew(0.01deg);
+    }
+    5% {
+        clip: rect(65px, 9999px, 93px, 0);
+        transform: skew(0.09deg);
+    }
+    10% {
+        clip: rect(7px, 9999px, 90px, 0);
+        transform: skew(0.88deg);
+    }
+    15% {
+        clip: rect(49px, 9999px, 68px, 0);
+        transform: skew(0.82deg);
+    }
+    20% {
+        clip: rect(56px, 9999px, 9px, 0);
+        transform: skew(0.46deg);
+    }
+    25% {
+        clip: rect(10px, 9999px, 93px, 0);
+        transform: skew(0.15deg);
+    }
+    30% {
+        clip: rect(57px, 9999px, 36px, 0);
+        transform: skew(0.84deg);
+    }
+    35% {
+        clip: rect(83px, 9999px, 27px, 0);
+        transform: skew(0.3deg);
+    }
+    40% {
+        clip: rect(77px, 9999px, 35px, 0);
+        transform: skew(0.81deg);
+    }
+    45% {
+        clip: rect(50px, 9999px, 81px, 0);
+        transform: skew(0.72deg);
+    }
+    50% {
+        clip: rect(97px, 9999px, 4px, 0);
+        transform: skew(0.86deg);
+    }
+    55% {
+        clip: rect(34px, 9999px, 18px, 0);
+        transform: skew(0.9deg);
+    }
+    60% {
+        clip: rect(40px, 9999px, 60px, 0);
+        transform: skew(0.41deg);
+    }
+    65% {
+        clip: rect(25px, 9999px, 19px, 0);
+        transform: skew(0.31deg);
+    }
+    70% {
+        clip: rect(68px, 9999px, 61px, 0);
+        transform: skew(0.74deg);
+    }
+    75% {
+        clip: rect(33px, 9999px, 5px, 0);
+        transform: skew(0.2deg);
+    }
+    80% {
+        clip: rect(70px, 9999px, 45px, 0);
+        transform: skew(0.6deg);
+    }
+    85% {
+        clip: rect(50px, 9999px, 13px, 0);
+        transform: skew(0.69deg);
+    }
+    90% {
+        clip: rect(24px, 9999px, 55px, 0);
+        transform: skew(0.6deg);
+    }
+    95% {
+        clip: rect(25px, 9999px, 83px, 0);
+        transform: skew(0.26deg);
+    }
+    100% {
+        clip: rect(44px, 9999px, 67px, 0);
+        transform: skew(0.91deg);
+    }
+}
+
+@keyframes bg-animation {
+    0% {
+        background: #000;
+        color: #FFF;
+    }
+    5% {
+        background: #FFF;
+        color: #000;
+    }
+    10% {
+        background: #000;
+        color: #FFF;
+    }
+    15% {
+        background: #000;
+        color: #FFF;
+    }
+    20% {
+        background: #000;
+        color: #FFF;
+    }
+    25% {
+        background: #000;
+        color: #FFF;
+    }
+    30% {
+        background: #000;
+        color: #FFF;
+    }
+    35% {
+        background: #000;
+        color: #FFF;
+    }
+    40% {
+        background: #000;
+        color: #FFF;
+    }
+    45% {
+        background: #000;
+        color: #FFF;
+    }
+    50% {
+        background: #FFF;
+        color: #000;
+    }
+    55% {
+        background: #000;
+        color: #FFF;
+    }
+    60% {
+        background: #000;
+        color: #FFF;
+    }
+    65% {
+        background: #000;
+        color: #FFF;
+    }
+    70% {
+        background: #000;
+        color: #FFF;
+    }
+    75% {
+        background: #000;
+        color: #FFF;
+    }
+    80% {
+        background: #fbc301;
+        color: #FFF;
+    }
+    85% {
+        background: #000;
+        color: #FFF;
+    }
+    90% {
+        background: #000;
+        color: #FFF;
+    }
+    95% {
+        background: #000;
+        color: #FFF;
+    }
+    100% {
+        background: #000;
+        color: #FFF;
+    }
+}
