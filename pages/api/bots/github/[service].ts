@@ -41,6 +41,13 @@ export default function handler(
     response: NextApiResponse,
 ) {
     const { service } = request.query;
+    const webhookEvent: WebhookEvent = request.body;
+
+    const message = get_message(webhookEvent);
+
+    if (!message) {
+        return true;
+    }
 
     bot.sendMessage(
         process.env.CHANNEL_ID_GLS_EOP,
