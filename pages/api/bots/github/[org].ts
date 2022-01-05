@@ -34,14 +34,27 @@ const get_message = (event: WebhookEvent): string | null => {
     return null;
 };
 
+const ORG_CHANNEL = {
+    'gls-ecl':  process.env.CHANNEL_ID_GLS_EOP,
+};
+
 const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
 export default function handler(
     request: NextApiRequest,
     response: NextApiResponse,
 ) {
-    const { service } = request.query;
+    const { org } = request.query;
     const webhookEvent: WebhookEvent = request.body;
+
+    if (!org) {
+        return true;
+    }
+
+    const channel_id = ORG_CHANNEL[String(org)];
+    if (!channel_id) {
+        return;
+    }
 
     const message = get_message(webhookEvent);
 
@@ -50,17 +63,17 @@ export default function handler(
     }
 
     bot.sendMessage(
-        process.env.CHANNEL_ID_GLS_EOP,
-        service,
+        channel_id,
+        message,
         {
             parse_mode: 'HTML',
             disable_web_page_preview: true,
         }
     ).then(() =>
-        response.end(`SUCCESS ${service}!`),
+        response.end(`SUCCESS ${org}!`),
     ).catch((err) => {
         console.error(err);
 
-        response.end(`ERROR ${service}!`);
-    }).finally(() => response.end(`WHAT ${service}!`));
+        response.end(`ERROR ${org}!`);
+    }).finally(() => response.end(`FINALLY ${org}!`));
 }
