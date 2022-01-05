@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import TelegramBot from 'node-telegram-bot-api';
 import {WebhookEvent} from "@octokit/webhooks-types";
+import {NextApiRequest, NextApiResponse} from "next";
 
 const get_message = (event: WebhookEvent): string | null => {
     if (
@@ -112,4 +113,10 @@ app.get('v1/bots/github/gls_ecl_eop', (request, response) => {
     return true;
 });
 
-module.exports = app;
+
+export default function handler(
+    request: NextApiRequest,
+    response: NextApiResponse,
+) {
+    response.end(`_void service`);
+}
