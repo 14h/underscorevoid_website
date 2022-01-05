@@ -50,16 +50,10 @@ export default function handler(
             disable_web_page_preview: true,
         }
     ).then(() =>
-        response.send({
-            success: true,
-        }),
+        response.end(`SUCCESS ${service}!`),
     ).catch((err) => {
         console.error(err);
 
-        response.send({
-            success: true,
-            err,
-        });
-    });
-    response.end(`Hello ${service}!`);
+        response.end(`ERROR ${service}!`);
+    }).finally(() => response.end(`WHAT ${service}!`));
 }
