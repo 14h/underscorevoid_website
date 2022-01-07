@@ -35,7 +35,7 @@ const get_message = (event: WebhookEvent): string | null => {
 };
 
 const ORG_CHANNEL = {
-    'gls-ecl':  process.env.CHANNEL_ID_GLS_EOP,
+    // 'gls-ecl':  process.env.CHANNEL_ID_GLS_EOP,
 };
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
