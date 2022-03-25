@@ -1,14 +1,13 @@
 
-import Head from "next/head";
-
-import Container from "../components/container";
-import Layout from "../components/layout";
+import {useEffect} from "react";
 
 export default function Next() {
 
+    useEffect(() => {
+        window.location.href = "https://divine-voice-7570.on.fleek.co/";
+    }, []);
+
     return (
-        <div className='overflow-y-hidden'>
-            Next education
-        </div>
+        <div/>
     )
 }
